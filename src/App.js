@@ -1,5 +1,5 @@
 import "./CSS/app.css";
-import GridContainer from "./Components/Grid";
+import GridContainer from "./Components/GridContainer";
 import { useRef, useState } from "react";
 
 import ResizeObserver from "react-resize-observer";
