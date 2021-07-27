@@ -1,0 +1,44 @@
+.gridContainer {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.loader {
+  margin-top: 40px;
+  font-size: 2.5rem;
+  color: #ffff;
+  font-family: "Sacramento", cursive;
+}
+/* 
+ CSS for non grid approach
+
+.searchContainer {
+  display: grid;
+
+  grid-template-columns: repeat(4, 200px);
+  grid-gap: 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .searchContainer {
+    grid-template-columns: repeat(3, 200px);
+  }
+}
+@media screen and (max-width: 768px) {
+  .searchContainer {
+    grid-template-columns: repeat(4, 100px);
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .searchContainer {
+    grid-template-columns: repeat(3, 100px);
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .searchContainer {
+    grid-template-columns: repeat(2, 100px);
+  }
+} */
