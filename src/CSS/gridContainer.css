@@ -20,13 +20,20 @@
 }
 
 .searchContainer img {
-  border-radius: 5px;
-  margin-top: 5px;
+  margin-bottom: -5px;
+
   width: 100% !important;
-  background-color: rgb(255, 0, 119);
 }
 
-.searchContainer a:nth-child(even) img {
+.searchContainer div {
+  margin-bottom: 10px;
+  background-color: rgb(255, 0, 119);
+  border-radius: 5px;
+  height: fit-content;
+  overflow: hidden;
+}
+
+.searchContainer a:nth-child(even) div {
   background-color: rgb(0, 119, 255);
 }
 
@@ -57,7 +64,7 @@
     column-width: 150px;
     column-gap: 5px;
   }
-  .searchContainer img {
-    margin-top: 0;
+  .searchContainer div {
+    margin-bottom: 5px;
   }
 }

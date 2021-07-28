@@ -36,7 +36,9 @@ function GridContainer({ searchQuery, searched }) {
         {gifs.map((gif) => {
           return (
             <a key={gif.id} href={gif.url}>
-              <img src={gif.images.original.url} alt="" />
+              <div>
+                <img src={gif.images.original.url} alt="" />
+              </div>
             </a>
           );
         })}
