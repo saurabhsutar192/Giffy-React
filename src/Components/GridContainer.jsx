@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Grid } from "@giphy/react-components";
+
 import { GiphyFetch } from "@giphy/js-fetch-api";
 import "../CSS/gridContainer.css";
 
-function GridContainer({ searchQuery, searched, width, height }) {
+function GridContainer({ searchQuery, searched }) {
   let [fetched, setFetched] = useState(false);
+  let [gifs, setGifs] = useState([]);
+
   const giphyFetch = new GiphyFetch("UcIefYLGg8sAVMUtZmrc3pK28yXuUX0H");
 
   function trendingGifs() {
@@ -19,29 +21,26 @@ function GridContainer({ searchQuery, searched, width, height }) {
     searched
       ? searchGifs().then((res) => {
           setFetched(true);
+          setGifs(res.data);
         })
       : trendingGifs().then((res) => {
           setFetched(true);
+          console.log(res.data);
+          setGifs(res.data);
         });
   }, [searched, searchQuery]);
 
   return fetched ? (
     <div className="gridContainer">
-      {!searched ? (
-        <Grid
-          fetchGifs={trendingGifs}
-          width={height > width || width < 728 ? width : width / 2}
-          columns={3}
-          gutter={6}
-        />
-      ) : (
-        <Grid
-          fetchGifs={searchGifs}
-          width={height > width || width < 728 ? width : width / 2}
-          columns={3}
-          gutter={6}
-        />
-      )}
+      <section className="searchContainer">
+        {gifs.map((gif) => {
+          return (
+            <a key={gif.id} href={gif.url}>
+              <img src={gif.images.original.url} alt="" />
+            </a>
+          );
+        })}
+      </section>
     </div>
   ) : (
     <div className="loader">Loading...</div>
@@ -50,7 +49,7 @@ function GridContainer({ searchQuery, searched, width, height }) {
 
 export default GridContainer;
 
-//non Grid approach
+//Gif approach-----"React-resize-observer" required for dynamic dimensions
 
 // <div className="searchContainer">
 //   {searchRes.map((gif) => {
@@ -65,3 +64,11 @@ export default GridContainer;
 //     );
 //   })}
 // </div>
+
+//Grid approach
+// <Grid
+//   fetchGifs={trendingGifs}
+//   width={height > width || width < 728 ? width : width / 2}
+//   columns={3}
+//   gutter={6}
+// />

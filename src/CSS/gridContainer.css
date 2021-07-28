@@ -10,35 +10,54 @@
   color: #ffff;
   font-family: "Sacramento", cursive;
 }
-/* 
- CSS for non grid approach
 
 .searchContainer {
-  display: grid;
+  width: 60%;
+  max-width: 900px;
+  column-width: 250px;
 
-  grid-template-columns: repeat(4, 200px);
-  grid-gap: 10px;
+  column-gap: 10px;
+}
+
+.searchContainer img {
+  border-radius: 5px;
+  margin-top: 5px;
+  width: 100% !important;
+  background-color: rgb(255, 0, 119);
+}
+
+.searchContainer a:nth-child(even) img {
+  background-color: rgb(0, 119, 255);
+}
+
+@media (orientation: portrait) {
+  .searchContainer {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1340px) {
+  .searchContainer {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 992px) {
   .searchContainer {
-    grid-template-columns: repeat(3, 200px);
+    width: 100%;
   }
 }
+
 @media screen and (max-width: 768px) {
   .searchContainer {
-    grid-template-columns: repeat(4, 100px);
+    column-width: 200px;
   }
 }
-
 @media screen and (max-width: 540px) {
   .searchContainer {
-    grid-template-columns: repeat(3, 100px);
+    column-width: 150px;
+    column-gap: 5px;
+  }
+  .searchContainer img {
+    margin-top: 0;
   }
 }
-
-@media screen and (max-width: 340px) {
-  .searchContainer {
-    grid-template-columns: repeat(2, 100px);
-  }
-} */
